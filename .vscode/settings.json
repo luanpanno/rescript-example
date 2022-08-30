@@ -1,4 +1,5 @@
 {
     "editor.defaultFormatter": "chenglou92.rescript-vscode",
-    "editor.formatOnPaste": true
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
 }
