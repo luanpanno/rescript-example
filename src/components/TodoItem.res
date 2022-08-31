@@ -1,8 +1,14 @@
+type todo = {
+  id: int,
+  title: string,
+  checked: bool,
+}
+
 @react.component
-let make = () => {
+let make = (~todo, ~removeTodo) => {
   <li>
-    <button> {"Delete"->React.string} </button>
-    <span> {"Todo"->React.string} </span>
-    <input type_="checkbox" />
+    <button onClick={_ => removeTodo(todo.id)}> {"Delete"->React.string} </button>
+    <span> {todo.title->React.string} </span>
+    <input type_="checkbox" checked={todo.checked} readOnly={true} />
   </li>
 }
