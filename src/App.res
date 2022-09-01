@@ -2,10 +2,10 @@
 
 @react.component
 let make = () => {
-  let (todoList, setTodoList) = React.useState(_ => [])
+  let (todoList, setTodoList) = React.useState((_): array<TodoItem.todo> => [])
 
   let addTodo = (todoName: string) =>
-    setTodoList((prevState: array<TodoItem.todo>) =>
+    setTodoList(prevState =>
       prevState->Belt.Array.concat([
         {
           id: todoList->Belt.Array.length + 1,
