@@ -4,8 +4,13 @@ let make = (~addTodo) => {
 
   let handleChange = evt => ReactEvent.Form.target(evt)["value"]->setValue
 
+  let handleAddTodo = _ => {
+    addTodo(value)
+    setValue(_ => "")
+  }
+
   <div>
-    <input type_="text" placeholder="Insert a todo" onChange={handleChange} />
-    <button onClick={_ => addTodo(value)}> {"Add"->React.string} </button>
+    <input type_="text" placeholder="Insert a todo" value onChange={handleChange} />
+    <button onClick={handleAddTodo}> {"Add"->React.string} </button>
   </div>
 }

@@ -18,12 +18,13 @@ let make = () => {
   let removeTodo = (todoId: int) =>
     setTodoList(prevState => prevState->Js.Array2.filter(x => x.id != todoId))
 
-  Js.log(todoList)
+  let renderItems = () =>
+    todoList
+    ->Belt.Array.map(todo => {<TodoItem key={todo.id->Belt.Int.toString} todo removeTodo />})
+    ->React.array
 
   <div className="App">
     <Input addTodo />
-    {todoList
-    ->Belt.Array.map(todo => {<TodoItem key={todo.id->Belt.Int.toString} todo removeTodo />})
-    ->React.array}
+    {Belt.Array.length(todoList) > 0 ? renderItems() : "No items added yet"->React.string}
   </div>
 }
